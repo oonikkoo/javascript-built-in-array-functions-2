@@ -374,5 +374,15 @@ const bills = [
 ];
 
 // Start coding here
+function sum (acc, obj) {
+    if (!acc[obj.location]) {
+        acc[obj.location] = obj.total
+    } else {
+        acc[obj.location] += obj.total
+    }
 
-const totalPaidByLocation;
+    return acc
+}
+
+const totalPaidByLocation = bills.reduce(sum, {})
+console.log(totalPaidByLocation)

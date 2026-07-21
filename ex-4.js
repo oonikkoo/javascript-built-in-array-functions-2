@@ -374,4 +374,12 @@ const bills = [
 ];
 
 // Start coding here
-const totalMembers;
+let totalMembers = bills.filter( bill => bill.member)
+totalMembers = totalMembers.map( bill => bill.member.name)
+totalMembers = totalMembers.reduce( (bill, name) => {
+  if (!bill.includes(name)) {
+    bill.push(name)
+  }
+  return bill
+}, [])
+console.log(`Unique Members Count: ${totalMembers.length}`)
